@@ -16,8 +16,7 @@ export default function Page() {
         'STP': 'ST (PwD)'
     };
 
-    // Default form state
-    const defaultFormState = {
+    const [formData, setFormData] = useState({
         jeeAdvancedQualified: '',
         jeeMainsRank: '',
         jeeMainsCategoryRank: '',
@@ -26,77 +25,14 @@ export default function Page() {
         gender: '',
         category: '',
         isPwd: false,
-    };    const [formData, setFormData] = useState(defaultFormState);
-    const [isLoading, setIsLoading] = useState(false);
-    const [viewportWidth, setViewportWidth] = useState(null);
-    const [isSaved, setIsSaved] = useState(false);    // Load saved form data from localStorage when component mounts
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            try {
-                const savedData = localStorage.getItem('jeeFormData');
-                if (savedData) {
-                    setFormData(JSON.parse(savedData));
-                    setIsSaved(true);
-                }
-            } catch (error) {
-                console.error('Error loading saved form data:', error);
-            }
-        }
-    }, []);
+    });
 
-    // Track viewport width for responsive adjustments
-    useEffect(() => {
-        const updateWidth = () => setViewportWidth(window.innerWidth);
-        // Set initial width
-        updateWidth();
-        // Add event listener
-        window.addEventListener('resize', updateWidth);
-        // Clean up
-        return () => window.removeEventListener('resize', updateWidth);
-    }, []);    const handleChange = (e) => {
+    const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
-        const newFormData = {
-            ...formData,
+        setFormData(prevData => ({
+            ...prevData,
             [name]: type === 'checkbox' ? checked : value
-        };
-        
-        setFormData(newFormData);
-        
-        // First set isSaved to false to show that changes are in progress
-        setIsSaved(false);
-        
-        // Use debounce to avoid saving too frequently
-        // Clear any existing timeout
-        if (window.saveTimeout) {
-            clearTimeout(window.saveTimeout);
-        }
-        
-        // Set new timeout
-        window.saveTimeout = setTimeout(() => {
-            // Save to localStorage after a short delay
-            if (typeof window !== 'undefined') {
-                try {
-                    localStorage.setItem('jeeFormData', JSON.stringify(newFormData));
-                    setIsSaved(true);
-                } catch (error) {
-                    console.error('Error saving form data:', error);
-                }
-            }
-        }, 500); // 500ms delay for debouncing
-    };
-    
-    // Function to clear all saved data
-    const clearSavedData = () => {
-        if (typeof window !== 'undefined') {
-            try {
-                localStorage.removeItem('jeeFormData');
-                setFormData(defaultFormState);
-                setIsSaved(false);
-                alert('All saved data has been cleared');
-            } catch (error) {
-                console.error('Error clearing saved data:', error);
-            }
-        }
+        }));
     };
 
     const isNonGeneralCategory = () => {
@@ -124,17 +60,8 @@ export default function Page() {
         return baseCategory;
     };
 
-    const scrollToSection = (sectionId) => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-            // Smooth scroll to section
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        setIsLoading(true);
         
         const categoryCode = getCategoryCode();
         
@@ -142,39 +69,17 @@ export default function Page() {
             ...formData,
             categoryCode,
         });
+        // Process form data here
+    };
 
-        // Simulate API call
-        setTimeout(() => {
-            setIsLoading(false);
-            // Here you would navigate to results or show success message
-            alert("Form submitted successfully! We'll show your dream colleges soon.");
-        }, 1500);
-    };    return (
+    return (
         <div className="container">
-            <h1 className="title">Your Path to Dream College</h1>
-            <div className="tagline">Complete the form below to discover your opportunities at top institutions</div>
+            <h1 className="title">JEE Counselling Form</h1>
             
             <form onSubmit={handleSubmit} className="form">
-                <div className="form-header">
-                    <div className="form-icon">🎓</div>
-                    <h2>JEE Counselling Form</h2>
-                </div>
-                
-                {/* Mobile Navigation */}
-                {viewportWidth && viewportWidth < 768 && (
-                    <div className="mobile-nav">
-                        <button type="button" className="nav-btn" onClick={() => scrollToSection('personal-info')}>
-                            <span className="section-icon">👤</span> Personal Info
-                        </button>
-                        <button type="button" className="nav-btn" onClick={() => scrollToSection('ranks-section')}>
-                            <span className="section-icon">🏆</span> Ranks
-                        </button>
-                    </div>
-                )}
-                
                 {/* Selection Fields Section */}
-                <div id="personal-info" className="selection-section">
-                    <h3><span className="section-icon">👤</span> Personal Information</h3>
+                <div className="selection-section">
+                    <h3>Personal Information</h3>
                     
                     <div className="form-group">
                         <label htmlFor="jeeAdvancedQualified">JEE Advanced Qualification Status:</label>
@@ -239,14 +144,14 @@ export default function Page() {
                 </div>
 
                 {/* Rank Fields Section */}
-                <div id="ranks-section" className="ranks-container">
-                    <h3><span className="section-icon">🏆</span> Examination Ranks</h3>
+                <div className="ranks-container">
+                    <h3>Examination Ranks</h3>
                 
                     {/* JEE Mains Rank Fields */}
                     <div className="rank-section">
-                        <h4><span className="section-icon">📊</span> JEE Mains Ranks</h4>
+                        <h4>JEE Mains Ranks</h4>
                         <div className="form-group">
-                            <label htmlFor="jeeMainsRank">JEE Mains Rank (CRL):</label>
+                            <label htmlFor="jeeMainsRank">JEE Mains Common Rank List (CRL):</label>
                             <input 
                                 type="number" 
                                 id="jeeMainsRank" 
@@ -254,8 +159,6 @@ export default function Page() {
                                 value={formData.jeeMainsRank}
                                 onChange={handleChange}
                                 min="1"
-                                placeholder="Enter your JEE Mains CRL"
-                                inputMode="numeric" 
                                 required
                             />
                         </div>
@@ -270,8 +173,6 @@ export default function Page() {
                                     value={formData.jeeMainsCategoryRank}
                                     onChange={handleChange}
                                     min="1"
-                                    placeholder="Enter your category rank"
-                                    inputMode="numeric"
                                     required
                                 />
                             </div>
@@ -281,9 +182,9 @@ export default function Page() {
                     {/* JEE Advanced Rank Fields */}
                     {formData.jeeAdvancedQualified === 'yes' && (
                         <div className="rank-section">
-                            <h4><span className="section-icon">🌟</span> JEE Advanced Ranks</h4>
+                            <h4>JEE Advanced Ranks</h4>
                             <div className="form-group">
-                                <label htmlFor="jeeAdvancedRank">JEE Advanced Rank (CRL):</label>
+                                <label htmlFor="jeeAdvancedRank">JEE Advanced Common Rank List (CRL):</label>
                                 <input 
                                     type="number" 
                                     id="jeeAdvancedRank" 
@@ -291,8 +192,6 @@ export default function Page() {
                                     value={formData.jeeAdvancedRank}
                                     onChange={handleChange}
                                     min="1"
-                                    placeholder="Enter your JEE Advanced CRL"
-                                    inputMode="numeric"
                                     required
                                 />
                             </div>
@@ -307,36 +206,15 @@ export default function Page() {
                                         value={formData.jeeAdvancedCategoryRank}
                                         onChange={handleChange}
                                         min="1"
-                                        placeholder="Enter your category rank"
-                                        inputMode="numeric"
                                         required
                                     />
                                 </div>
                             )}
                         </div>
                     )}
-                </div>                <div className="form-footer">
-                    <div className="save-status">
-                        {isSaved && <p className="saved-indicator"><span className="save-icon">✓</span> Form data saved</p>}
-                    </div>
-                    <p className="form-note">Your dream college is just a step away!</p>
-                    <div className="button-group">
-                        <button 
-                            type="button" 
-                            className="clear-btn"
-                            onClick={clearSavedData}
-                        >
-                            Clear Form
-                        </button>
-                        <button 
-                            type="submit" 
-                            className="submit-btn" 
-                            disabled={isLoading}
-                        >
-                            {isLoading ? 'Finding Colleges...' : 'Find My Dream College'}
-                        </button>
-                    </div>
                 </div>
+
+                <button type="submit" className="submit-btn">Submit</button>
             </form>
         </div>
     );

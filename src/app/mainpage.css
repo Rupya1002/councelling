@@ -1,0 +1,550 @@
+/* JEE Counselling Form Styles - Dream College Theme */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #050d13;
+  --accent-color: #1dc3ed;
+  --success-color: #27ae60;
+  --light-bg: #ecf0f1;
+  --dark-text: #2c3e50;
+  --light-text: #ffffff;
+  --hover-color: #2980b9;
+  --border-color: #bdc3c7;
+  --section-bg: #f9f9f9;
+  --rank-section-bg: #eaf2f8;
+  --gradient-start: #1dc3ed;
+  --gradient-end: #050d13;
+  --shadow-color: rgba(44, 62, 80, 0.1);
+}
+
+/* Base styles optimized for mobile-first */
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.tagline {
+  text-align: center;
+  color: var(--dark-text);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px var(--shadow-color);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+  border-radius: 2px;
+}
+
+.form {
+  background-color: var(--light-bg);
+  padding: 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px var(--shadow-color);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border-color);
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px dashed var(--border-color);
+}
+
+.form-icon {
+  font-size: 1.75rem;
+  margin-right: 0.75rem;
+}
+
+.form-header h2 {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.section-icon {
+  margin-right: 8px;
+}
+
+/* Selection Section Styles */
+.selection-section {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+  background-color: var(--section-bg);
+  border-radius: 8px;
+  padding: 1rem;
+  position: relative;
+}
+
+.selection-section h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  position: relative;
+  padding-left: 0.75rem;
+  font-weight: 600;
+}
+
+.selection-section h3:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 16px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+/* Ranks Container Styles */
+.ranks-container {
+  background-color: var(--rank-section-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+  position: relative;
+}
+
+.ranks-container h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  position: relative;
+  padding-left: 0.75rem;
+  font-weight: 600;
+}
+
+.ranks-container h3:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 16px;
+  background-color: var(--success-color);
+  border-radius: 2px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: var(--dark-text);
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s;
+  background-color: #fff;
+  -webkit-appearance: none; /* Remove default iOS styling */
+  appearance: none;
+}
+
+/* Custom select arrow for better mobile appearance */
+select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232c3e50' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%;
+  background-size: 0.85em auto;
+  padding-right: 1.8em;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+/* Increase tap target sizes for mobile */
+.checkbox-group {
+  margin-top: 0.5rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  min-height: 44px; /* Minimum tap target size */
+}
+
+.checkbox-label:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Custom checkbox styling */
+.checkbox-label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.3s;
+  position: relative;
+  background-color: white;
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.checkbox-label input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  color: white;
+  font-size: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+
+.checkbox-label:hover input[type="checkbox"] {
+  border-color: var(--secondary-color);
+}
+
+.rank-section {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.rank-section h4 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  color: var(--secondary-color);
+  font-size: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.rank-section:last-child {
+  margin-bottom: 0;
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.form-note {
+  color: var(--accent-color);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+/* Large, easy to tap submit button */
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+  color: var(--light-text);
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  height: 52px; /* Minimum recommended tap target height */
+}
+
+.submit-btn:hover {
+  background: linear-gradient(to right, var(--hover-color), var(--primary-color));
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.submit-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Navigation Styles */
+.mobile-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  position: sticky;
+  top: 0;
+  background-color: var(--light-bg);
+  z-index: 10;
+  border-radius: 6px;
+}
+
+.nav-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--dark-text);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.nav-btn:focus {
+  outline: none;
+}
+
+.nav-btn:hover, .nav-btn:active {
+  border-bottom-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+/* Loading state for the submit button */
+.submit-btn:disabled {
+  background: linear-gradient(to right, #7f8c8d, #95a5a6);
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.submit-btn:disabled {
+  animation: pulse 1.5s infinite;
+}
+
+/* Saved indicator and clear button */
+.save-status {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  min-height: 22px;
+}
+
+.saved-indicator {
+  display: inline-flex;
+  align-items: center;
+  color: var(--success-color);
+  font-size: 0.85rem;
+  margin: 0;
+  padding: 4px 8px;
+  background-color: rgba(39, 174, 96, 0.1);
+  border-radius: 4px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.save-icon {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.clear-btn {
+  flex: 0 0 auto;
+  width: 30%;
+  padding: 14px 10px;
+  background: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  height: 52px;
+}
+
+.clear-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: var(--primary-color);
+}
+
+.clear-btn:active {
+  transform: translateY(1px);
+}
+
+.submit-btn {
+  flex: 1;
+}
+
+@media (max-width: 480px) {
+  .form-footer {
+    position: sticky;
+    bottom: 0;
+    background: rgba(236, 240, 241, 0.95);
+    margin: 1rem -1.25rem -1.25rem;
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 10;
+  }
+
+  .form-note {
+    font-size: 0.85rem;
+  }
+}
+
+/* Responsive adjustments */
+@media (min-width: 481px) {
+  .container {
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .tagline {
+    font-size: 1.1rem;
+  }
+  
+  .form {
+    padding: 1.5rem;
+  }
+  
+  .form-group label {
+    font-size: 1rem;
+  }
+  
+  .submit-btn {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem;
+    margin: 2rem auto;
+  }
+  
+  .title {
+    font-size: 2.2rem;
+  }
+  
+  .form {
+    padding: 2rem;
+  }
+  
+  .selection-section,
+  .ranks-container {
+    padding: 1.5rem;
+  }
+  
+  .selection-section h3,
+  .ranks-container h3 {
+    font-size: 1.3rem;
+  }
+  
+  .rank-section {
+    padding: 1.5rem;
+  }
+  
+  .rank-section h4 {
+    font-size: 1.1rem;
+  }
+}
