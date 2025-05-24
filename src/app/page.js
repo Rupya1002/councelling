@@ -131,15 +131,33 @@ export default function Page() {
             ...formData,
             categoryCode,
         })
-        e.preventDefault(); // Prevent default form submission behavior
-    const params = new URLSearchParams({
-    resver: categoryCode,
-    gend: formData.gender === 'male' ? 'M' : 'F',
-    adv: formData.jeeAdvancedQualified === 'yes' ? (formData.category!== 'O' ? formData.jeeAdvancedCategoryRank : formData.jeeAdvancedRank ): '0',
-    main: formData.category!=='O' ? formData.jeeMainsCategoryRank : formData.jeeMainsRank 
+        e.preventDefault(); 
+        if(categoryCode === 'O') {
+    const updatedFormData = {
+        ...formData,
+        jeeAdvancedCategoryRank: 0,
+        jeeMainsCategoryRank: 0
+    };
+    setFormData(updatedFormData);
+    
+    // Also save to localStorage
+    if (typeof window !== 'undefined') {
+        try {
+            localStorage.setItem('jeeFormData', JSON.stringify(updatedFormData));
+        } catch (error) {
+            console.error('Error saving form data:', error);
+        }
+    }
+}
+        const params = new URLSearchParams({
+        resver: categoryCode,
+        gend: formData.gender === 'male' ? 'M' : 'F',
+        adv: formData.jeeAdvancedQualified === 'yes' ? (categoryCode !== 'O' ? formData.jeeAdvancedCategoryRank : formData.jeeAdvancedRank) : '0',
+        main: categoryCode !== 'O' ? formData.jeeMainsCategoryRank : formData.jeeMainsRank
   });
 
   try {
+    console.log('Fetching data with params:', params.toString());
     const response = await fetch(`https://api-josaacounselling22.vercel.app/api/search?${params.toString()}`);
     const data = await response.json();
     if (typeof window !== 'undefined') {
