@@ -1,0 +1,232 @@
+:root {
+    --card-width: min(100%, 400px);
+    --card-margin: 1rem;
+    --mobile-padding: 1rem;
+    --mobile-font-size: 0.9rem;
+}
+
+.institutes-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    min-height: calc(var(--vh, 1vh) * 100);
+    background: var(--light-bg);
+}
+
+.back-button {
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.back-button:hover {
+    color: var(--accent-color);
+}
+
+.search-params {
+    text-align: center;
+    color: var(--dark-text);
+    background: white;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.institutes-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.institutes-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(100px, 30%);
+    height: 3px;
+    background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+.loading-container {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin: 1rem auto;
+    max-width: 400px;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    animation: spin 1s linear infinite;
+}
+
+.loading-subtitle {
+    color: var(--dark-text);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.institutes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.institute-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.institute-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.institute-name {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin: 0 0 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.institute-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.institute-details p {
+    margin: 0.5rem 0;
+    color: var(--dark-text);
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.institute-details span {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.probability {
+    margin-top: auto;
+    padding: 0.75rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.probability.high {
+    background-color: rgba(39, 174, 96, 0.1);
+    color: #27ae60;
+}
+
+.probability.medium {
+    background-color: rgba(241, 196, 15, 0.1);
+    color: #f39c12;
+}
+
+.probability.low {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: #c0392b;
+}
+
+.retry-button {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.retry-button:hover {
+    background: var(--hover-color);
+}
+
+@media (max-width: 768px) {
+    .institutes-container {
+        padding: var(--mobile-padding);
+    }
+    
+    .institutes-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0;
+    }
+    
+    .institute-card {
+        padding: 1rem;
+        margin: 0;
+    }
+    
+    .institute-name {
+        font-size: 1rem;
+    }
+    
+    .institute-details p {
+        font-size: var(--mobile-font-size);
+    }
+    
+    .probability {
+        padding: 0.5rem;
+        font-size: var(--mobile-font-size);
+    }
+}
+
+@media (max-width: 480px) {
+    .institutes-title {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    .loading-container {
+        padding: 1.5rem 1rem;
+    }
+    
+    .search-params {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+}
