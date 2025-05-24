@@ -25,7 +25,11 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
+.form-group-checkbox-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 body {
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   min-height: 100vh;
@@ -220,16 +224,20 @@ select {
 }
 
 /* Increase tap target sizes for mobile */
-.checkbox-group {
-  margin-top: 0.5rem;
+
+.person {
+display: inline-block;
 }
 
 .checkbox-label {
-  display: flex;
-  align-items: center;
+  display: inline-block;
+  align-items: top;
   cursor: pointer;
   font-weight: 500;
   padding: 10px;
+  padding-top: 17px;
+  padding-left: 17px;
+  margin-right: 5px;
   border-radius: 4px;
   transition: background-color 0.3s;
   min-height: 44px; /* Minimum tap target size */

@@ -232,7 +232,7 @@ export default function Page() {
                 </select>
                 </div>
 
-                <div className="form-group checkbox-group">
+                <div className="form-group-checkbox-group">
                 <label htmlFor="isPwd" className="checkbox-label">
                     <input 
                     type="checkbox" 
@@ -240,9 +240,11 @@ export default function Page() {
                     name="isPwd" 
                     checked={formData.isPwd}
                     onChange={handleChange}
+                    className="checkbox-input"
                     />
-                    Person with Disability (PwD)
+                  
                 </label>
+                <p class="person" >  Person with Disability (PwD)</p>
                 </div>
 
                 <div className="form-group">
