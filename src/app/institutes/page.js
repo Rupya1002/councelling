@@ -5,12 +5,11 @@ import './institute.css';
 export default function InstitutesPage() {
     const [loading, setLoading] = useState(true);
     const [institutes, setInstitutes] = useState({
-        iit: [],
-        nit: []
+        "iit": [],
+        "nit": []
     });
     const [formData, setFormData] = useState(null);
     const [error, setError] = useState(null);
-    const [searchParams, setSearchParams] = useState('');
 
     useEffect(() => {
         const handleResize = () => {
@@ -20,15 +19,16 @@ export default function InstitutesPage() {
         if (typeof window !== 'undefined') {
             try {
                 const savedData = localStorage.getItem('data');
-
+                console.log('Saved Data:', savedData);
                 if (savedData) {
                     const parsedData = JSON.parse(savedData);
                     
-                    setFormData(parsedData);
                     setInstitutes({
-                        iit: parsedData.adv || [],
-                        nit: parsedData.main || []
+                        "iit": parsedData.adv || [],
+                        "nit": parsedData.main || []
                     });
+
+                    console.log('Parsed Data:', parsedData);
                 } else {
                     setError('No saved data found. Please fill the counselling form first.');
                 }
@@ -80,30 +80,30 @@ export default function InstitutesPage() {
                 ← Back to Form
             </button>
            
-            {getCount(institutes.iit) > 0 || getCount(institutes.nit) > 0 ? (
+            {getCount(institutes['iit']) > 0 || getCount(institutes["nit"]) > 0 ? (
                 <div className="institutes-list">
-                    {getCount(institutes.iit) > 0 && (
+                    {getCount(institutes['iit']) > 0 && (
                         <div>
-                            <h2>Recommended IIT ({getCount(institutes.iit)})</h2>
+                            <h2>Recommended IITs</h2>
                             <ul>
-                                {institutes.iit.map((institute, index) => (
+                                {institutes['iit'].map((institute, index) => (
                                     <li key={`iit-${index}`} className="institute-item">
-                                        <h3>{institute.institute}</h3>
-                                        <p>Branch: {institute.Academicprogramname}</p>
+                                        <h3>{institute.Institute}</h3>
+                                        <p>Branch: {institute.AcademicProgramName}</p>
                                     </li>
                                 ))}
                             </ul>
                         </div>
                     )}
-                    
-                    {getCount(institutes.nit) > 0 && (
+
+                    {getCount(institutes['nit']) > 0 && (
                         <div>
-                            <h2>Recommended NIT ({getCount(institutes.nit)})</h2>
+                            <h2>Recommended NIT ({getCount(institutes['nit'])})</h2>
                             <ul>
-                                {institutes.nit.map((institute, index) => (
+                                {institutes['nit'].map((institute, index) => (
                                     <li key={`nit-${index}`} className="institute-item">
-                                        <h3>{institute.institute}</h3>
-                                        <p>Branch: {institute.Academicprogramname}</p>
+                                        <h3>{institute.Institute}</h3>
+                                        <p>Branch: {institute.AcademicProgramName}</p>
                                     </li>
                                 ))}
                             </ul>
