@@ -20,18 +20,15 @@ export default function InstitutesPage() {
         if (typeof window !== 'undefined') {
             try {
                 const savedData = localStorage.getItem('data');
-                const formData = localStorage.getItem('formdata');
 
-                if (savedData && formData) {
-                    const parsedFormData = JSON.parse(formData);
+                if (savedData) {
                     const parsedData = JSON.parse(savedData);
                     
-                    setFormData(parsedFormData);
+                    setFormData(parsedData);
                     setInstitutes({
                         iit: parsedData.adv || [],
                         nit: parsedData.main || []
                     });
-                    setSearchParams(`Rank: ${parsedFormData.jeeMainsRank}, Category: ${parsedFormData.category}`);
                 } else {
                     setError('No saved data found. Please fill the counselling form first.');
                 }
@@ -74,17 +71,20 @@ export default function InstitutesPage() {
         );
     }
 
+    // Helper function to get the number of objects in an array
+    const getCount = arr => Array.isArray(arr) ? arr.length : 0;
+
     return (
         <div className="institutes-container">
             <button onClick={goBack} className="back-button">
                 ← Back to Form
             </button>
            
-            {institutes.iit.length > 0 || institutes.nit.length > 0 ? (
+            {getCount(institutes.iit) > 0 || getCount(institutes.nit) > 0 ? (
                 <div className="institutes-list">
-                    {institutes.iit.length > 0 && (
-                        <>
-                            <h2>Recommended IIT</h2>
+                    {getCount(institutes.iit) > 0 && (
+                        <div>
+                            <h2>Recommended IIT ({getCount(institutes.iit)})</h2>
                             <ul>
                                 {institutes.iit.map((institute, index) => (
                                     <li key={`iit-${index}`} className="institute-item">
@@ -93,12 +93,12 @@ export default function InstitutesPage() {
                                     </li>
                                 ))}
                             </ul>
-                        </>
+                        </div>
                     )}
                     
-                    {institutes.nit.length > 0 && (
-                        <>
-                            <h2>Recommended NIT</h2>
+                    {getCount(institutes.nit) > 0 && (
+                        <div>
+                            <h2>Recommended NIT ({getCount(institutes.nit)})</h2>
                             <ul>
                                 {institutes.nit.map((institute, index) => (
                                     <li key={`nit-${index}`} className="institute-item">
@@ -107,7 +107,7 @@ export default function InstitutesPage() {
                                     </li>
                                 ))}
                             </ul>
-                        </>
+                        </div>
                     )}
                 </div>
             ) : (

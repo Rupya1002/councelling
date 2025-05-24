@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from 'react';
-
+import { useRouter } from 'next/navigation';
 export default function Page() {
     // This reservation object is kept for internal use but won't be displayed to users
     const reservations = {
@@ -29,7 +29,8 @@ export default function Page() {
     };    const [formData, setFormData] = useState(defaultFormState);
     const [isLoading, setIsLoading] = useState(false);
     const [viewportWidth, setViewportWidth] = useState(null);
-    const [isSaved, setIsSaved] = useState(false);    // Load saved form data from localStorage when component mounts
+    const [isSaved, setIsSaved] = useState(false); 
+    const  router = useRouter();   // Load saved form data from localStorage when component mounts
     useEffect(() => {
         if (typeof window !== 'undefined') {
             try {
@@ -108,7 +109,7 @@ export default function Page() {
             if (baseCategory === 'ST') return 'STP';
             if (baseCategory === 'E') return 'EP';
         }
-
+    
         return baseCategory;
     };
 
@@ -131,20 +132,11 @@ export default function Page() {
             categoryCode,
         })
         e.preventDefault(); // Prevent default form submission behavior
-
-
-        setTimeout(() => {
-            setIsLoading(false);
-            window.location.href = "/institutes";
-        }, 1500);
-    };;
-const submitData = async () => {
-  const categoryCode = getCategoryCode();
-  const params = new URLSearchParams({
+    const params = new URLSearchParams({
     resver: categoryCode,
     gend: formData.gender === 'male' ? 'M' : 'F',
-    adv: formData.jeeAdvancedQualified === 'yes' ? formData.jeeAdvancedRank : '0',
-    main: formData.jeeMainsCategoryRank,
+    adv: formData.jeeAdvancedQualified === 'yes' ? formData.jeeAdvancedCategoryRank || formData.jeeAdvancedRank : '0',
+    main: formData.jeeMainsCategoryRank || formData.jeeMainsRank || '0',
   });
 
   try {
@@ -156,14 +148,15 @@ const submitData = async () => {
         } catch (error) {
             console.error('Error saving API response:', error);
         }
-    }
-
+}
     console.log('API response:', data);
   } catch (error) {
     console.error('Error fetching data:', error);
   }
-};
-           
+    setIsLoading(false);
+    router.push('/institutes');
+       
+    }        
         return (
         <div className="container">
             <h1 className="title">Your Path to Dream College</h1>
@@ -341,9 +334,7 @@ const submitData = async () => {
                     type="submit" 
                     className="submit-btn" 
                     disabled={isLoading}
-                    onClick={async (e) => { 
-                    await submitData(); 
-                    }}
+                    onClick={handleSubmit}
                 >
                     {isLoading ? 'Finding Colleges...' : 'Find My Dream College'}
                 </button>
