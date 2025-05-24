@@ -12,6 +12,21 @@
     min-height: calc(var(--vh, 1vh) * 100);
     background: var(--light-bg);
 }
+.institute-section {
+    margin-bottom: 2rem;
+}
+
+.search-params p {
+    display: inline-block;
+    margin: 0 1rem;
+    font-weight: 500;
+}
+
+.search-params p:not(:last-child)::after {
+    content: '•';
+    margin-left: 1rem;
+    opacity: 0.5;
+}
 
 .back-button {
     background: transparent;

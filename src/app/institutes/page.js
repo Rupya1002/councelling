@@ -19,16 +19,17 @@ export default function InstitutesPage() {
         if (typeof window !== 'undefined') {
             try {
                 const savedData = localStorage.getItem('data');
-                console.log('Saved Data:', savedData);
-                if (savedData) {
+                const formData = localStorage.getItem('jeeFormData');
+                
+                if (savedData && formData) {
                     const parsedData = JSON.parse(savedData);
+                    const parsedFormData = JSON.parse(formData);
                     
+                    setFormData(parsedFormData);
                     setInstitutes({
                         "iit": parsedData.adv || [],
-                        "nit": parsedData.main || []
+                        "nit": parsedData.mains || []
                     });
-
-                    console.log('Parsed Data:', parsedData);
                 } else {
                     setError('No saved data found. Please fill the counselling form first.');
                 }
@@ -45,7 +46,7 @@ export default function InstitutesPage() {
         }
     }, []);
 
-    const goBack = () => {
+      const goBack = () => {
         window.location.href = '/';
     };
 
@@ -74,45 +75,62 @@ export default function InstitutesPage() {
     // Helper function to get the number of objects in an array
     const getCount = arr => Array.isArray(arr) ? arr.length : 0;
 
+
     return (
         <div className="institutes-container">
             <button onClick={goBack} className="back-button">
                 ← Back to Form
             </button>
+
+            {formData && (
+                <div className="search-params">
+                    <p>JEE Advanced Rank: {parseInt(formData.jeeAdvancedCategoryRank || formData.jeeAdvancedRank, 10)}</p>
+                    <p>JEE Mains Rank: {parseInt(formData.jeeMainsCategoryRank || formData.jeeMainsRank, 10)}</p>
+                    <p>Category: {formData.category}</p>
+                </div>
+            )}
            
             {getCount(institutes['iit']) > 0 || getCount(institutes["nit"]) > 0 ? (
                 <div className="institutes-list">
                     {getCount(institutes['iit']) > 0 && (
-                        <div>
-                            <h2>Recommended IITs</h2>
-                            <ul>
+                        <div className="institute-section">
+                            <h2 className="institutes-title">Recommended IITs ({getCount(institutes['iit'])})</h2>
+                            <div className="institutes-grid">
                                 {institutes['iit'].map((institute, index) => (
-                                    <li key={`iit-${index}`} className="institute-item">
-                                        <h3>{institute.Institute}</h3>
-                                        <p>Branch: {institute.AcademicProgramName}</p>
-                                    </li>
+                                    <div key={`iit-${index}`} className="institute-card">
+                                        <h3 className="institute-name">{institute.Institute}</h3>
+                                        <div className="institute-details">
+                                            <span>Branch: <span>{institute.AcademicProgramName}</span></span><br />
+                                            <span>Opening Rank: <span>{parseInt(institute.OpeningRank, 10)}</span></span><br />
+                                            <span>Closing Rank: <span>{parseInt(institute.ClosingRank, 10)}</span></span>
+                                        </div>
+                                    </div>
                                 ))}
-                            </ul>
+                            </div>
                         </div>
                     )}
 
                     {getCount(institutes['nit']) > 0 && (
-                        <div>
-                            <h2>Recommended NIT ({getCount(institutes['nit'])})</h2>
-                            <ul>
+                        <div className="institute-section">
+                            <h2 className="institutes-title">Recommended NITs ({getCount(institutes['nit'])})</h2>
+                            <div className="institutes-grid">
                                 {institutes['nit'].map((institute, index) => (
-                                    <li key={`nit-${index}`} className="institute-item">
-                                        <h3>{institute.Institute}</h3>
-                                        <p>Branch: {institute.AcademicProgramName}</p>
-                                    </li>
+                                    <div key={`nit-${index}`} className="institute-card">
+                                        <h3 className="institute-name">{institute.Institute}</h3>
+                                        <div className="institute-details">
+                                            <span>Branch: <span>{institute.AcademicProgramName}</span></span><br />
+                                            <span>Opening Rank: <span>{parseInt(institute.OpeningRank, 10)}</span></span><br />
+                                            <span>Closing Rank: <span>{parseInt(institute.ClosingRank, 10)}</span></span>
+                                        </div>
+                                    </div>
                                 ))}
-                            </ul>
+                            </div>
                         </div>
                     )}
                 </div>
             ) : (
                 <div className="no-results">
-                    <p>No college recommendations found for your criteria.</p>
+                    <p>No college recommendations found for your criteria</p>
                     <button onClick={goBack} className="retry-button">
                         Try Again
                     </button>

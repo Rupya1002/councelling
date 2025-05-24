@@ -135,8 +135,8 @@ export default function Page() {
     const params = new URLSearchParams({
     resver: categoryCode,
     gend: formData.gender === 'male' ? 'M' : 'F',
-    adv: formData.jeeAdvancedQualified === 'yes' ? formData.jeeAdvancedCategoryRank || formData.jeeAdvancedRank : '0',
-    main: formData.jeeMainsCategoryRank || formData.jeeMainsRank || '0',
+    adv: formData.jeeAdvancedQualified === 'yes' ? (formData.category!== 'O' ? formData.jeeAdvancedCategoryRank : formData.jeeAdvancedRank ): '0',
+    main: formData.category!=='O' ? formData.jeeMainsCategoryRank : formData.jeeMainsRank 
   });
 
   try {
