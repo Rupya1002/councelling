@@ -318,7 +318,7 @@ const handleSubmit = (e) => {
           <h3><span className="section-icon">🏆</span> Examination Rank</h3>
           <div className="rank-section">
             <label htmlFor="rank">
-              {formData.instituteType === 'IIT' ? 'JEE Advanced Rank' : 'JEE Mains Rank'}: <span className="required">*</span>
+              {formData.instituteType === 'IIT' ? 'JEE Advanced Category Rank' : 'JEE Mains Category Rank'}: <span className="required">*</span>
             </label>
             <input
               type="number"
