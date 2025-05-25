@@ -1,0 +1,122 @@
+Institute,State,StateId,Id,Type
+Indian Institute of Technology Bhubaneswar,Odisha,1,100,IIT
+Indian Institute of Technology Bombay,Maharashtra,2,101,IIT
+Indian Institute of Technology Mandi,Himachal Pradesh,3,102,IIT
+Indian Institute of Technology Delhi,Delhi,4,103,IIT
+Indian Institute of Technology Indore,Madhya Pradesh,5,104,IIT
+Indian Institute of Technology Kharagpur,West Bengal,6,105,IIT
+Indian Institute of Technology Hyderabad,Telangana,7,106,IIT
+Indian Institute of Technology Jodhpur,Rajasthan,8,107,IIT
+Indian Institute of Technology Kanpur,Uttar Pradesh,9,108,IIT
+Indian Institute of Technology Madras,Tamil Nadu,10,109,IIT
+Indian Institute of Technology Gandhinagar,Gujarat,11,110,IIT
+Indian Institute of Technology Patna,Bihar,12,111,IIT
+Indian Institute of Technology Roorkee,Uttarakhand,13,112,IIT
+Indian Institute of Technology (ISM) Dhanbad,Jharkhand,14,113,IIT
+Indian Institute of Technology Ropar,Punjab,15,114,IIT
+Indian Institute of Technology (BHU) Varanasi,Uttar Pradesh,9,115,IIT
+Indian Institute of Technology Guwahati,Assam,16,116,IIT
+Indian Institute of Technology Bhilai,Chhattisgarh,17,117,IIT
+Indian Institute of Technology Goa,Goa,18,118,IIT
+Indian Institute of Technology Palakkad,Kerala,19,119,IIT
+Indian Institute of Technology Tirupati,Andhra Pradesh,20,120,IIT
+Indian Institute of Technology Jammu,Jammu and Kashmir,21,121,IIT
+Indian Institute of Technology Dharwad,Karnataka,22,122,IIT
+"Dr. B R Ambedkar National Institute of Technology, Jalandhar",Punjab,15,123,NIT
+Malaviya National Institute of Technology Jaipur,Rajasthan,8,124,NIT
+Maulana Azad National Institute of Technology Bhopal,Madhya Pradesh,5,125,NIT
+Motilal Nehru National Institute of Technology Allahabad,Uttar Pradesh,9,126,NIT
+National Institute of Technology Agartala,Tripura,23,127,NIT
+National Institute of Technology Calicut,Kerala,19,128,NIT
+National Institute of Technology Delhi,Delhi,4,129,NIT
+National Institute of Technology Durgapur,West Bengal,6,130,NIT
+National Institute of Technology Goa,Goa,18,131,NIT
+National Institute of Technology Hamirpur,Himachal Pradesh,3,132,NIT
+"National Institute of Technology Karnataka, Surathkal",Karnataka,22,133,NIT
+National Institute of Technology Meghalaya,Meghalaya,24,134,NIT
+National Institute of Technology Nagaland,Nagaland,25,135,NIT
+National Institute of Technology Patna,Bihar,12,136,NIT
+National Institute of Technology Puducherry,Puducherry,26,137,NIT
+National Institute of Technology Raipur,Chhattisgarh,17,138,NIT
+National Institute of Technology Sikkim,Sikkim,27,139,NIT
+National Institute of Technology Arunachal Pradesh,Arunachal Pradesh,28,140,NIT
+"National Institute of Technology, Jamshedpur",Jharkhand,14,141,NIT
+"National Institute of Technology, Kurukshetra",Haryana,29,142,NIT
+"National Institute of Technology, Manipur",Manipur,30,143,NIT
+"National Institute of Technology, Mizoram",Mizoram,31,144,NIT
+"National Institute of Technology, Rourkela",Odisha,1,145,NIT
+"National Institute of Technology, Silchar",Assam,16,146,NIT
+"National Institute of Technology, Srinagar",Jammu and Kashmir,21,147,NIT
+"National Institute of Technology, Tiruchirappalli",Tamil Nadu,10,148,NIT
+"National Institute of Technology, Uttarakhand",Uttarakhand,13,149,NIT
+"National Institute of Technology, Warangal",Telangana,7,150,NIT
+"Sardar Vallabhbhai National Institute of Technology, Surat",Gujarat,11,151,NIT
+"Visvesvaraya National Institute of Technology, Nagpur",Maharashtra,2,152,NIT
+"National Institute of Technology, Andhra Pradesh",Andhra Pradesh,20,153,NIT
+"Indian Institute of Engineering Science and Technology, Shibpur",West Bengal,6,154,NIT
+Atal Bihari Vajpayee Indian Institute of Information Technology & Management Gwalior,Madhya Pradesh,5,155,IIIT
+"Indian Institute of Information Technology (IIIT)Kota, Rajasthan",Rajasthan,8,156,IIIT
+Indian Institute of Information Technology Guwahati,Assam,16,157,IIIT
+"Indian Institute of Information Technology(IIIT) Kalyani, West Bengal",West Bengal,6,158,IIIT
+"Indian Institute of Information Technology(IIIT) Kilohrad, Sonepat, Haryana",Haryana,29,159,IIIT
+"Indian Institute of Information Technology(IIIT) Una, Himachal Pradesh",Himachal Pradesh,3,160,IIIT
+"Indian Institute of Information Technology (IIIT), Sri City, Chittoor",Andhra Pradesh,20,161,IIIT
+"Indian Institute of Information Technology(IIIT), Vadodara, Gujrat",Gujarat,11,162,IIIT
+"Indian Institute of Information Technology, Allahabad",Uttar Pradesh,9,163,IIIT
+"Indian Institute of Information Technology, Design & Manufacturing, Kancheepuram",Tamil Nadu,10,164,IIIT
+"Pt. Dwarka Prasad Mishra Indian Institute of Information Technology, Design & Manufacture Jabalpur",Madhya Pradesh,5,165,IIIT
+INDIAN INSTITUTE OF INFORMATION TECHNOLOGY SENAPATI MANIPUR,Manipur,30,166,IIIT
+Indian Institute of Information Technology Tiruchirappalli,Tamil Nadu,10,167,IIIT
+Indian Institute of Information Technology Lucknow,Uttar Pradesh,9,168,IIIT
+Indian Institute of Information Technology(IIIT) Dharwad,Karnataka,22,169,IIIT
+"Indian Institute of Information Technology Design & Manufacturing Kurnool, Andhra Pradesh",Andhra Pradesh,20,170,IIIT
+Indian Institute of Information Technology(IIIT) Kottayam,Kerala,19,171,IIIT
+Indian Institute of Information Technology (IIIT) Ranchi,Jharkhand,14,172,IIIT
+Indian Institute of Information Technology (IIIT) Nagpur,Maharashtra,2,173,IIIT
+Indian Institute of Information Technology (IIIT) Pune,Maharashtra,2,174,IIIT
+Indian Institute of Information Technology Bhagalpur,Bihar,12,175,IIIT
+Indian Institute of Information Technology Bhopal,Madhya Pradesh,5,176,IIIT
+Indian Institute of Information Technology Surat,Gujarat,11,177,IIIT
+"Indian Institute of Information Technology, Agartala",Tripura,23,178,IIIT
+"Indian institute of information technology, Raichur, Karnataka",Karnataka,22,179,IIIT
+"Indian Institute of Information Technology, Vadodara International Campus Diu (IIITVICD)",Dadra and Nagar Haveli and Daman and Diu,32,180,IIIT
+"Assam University, Silchar",Assam,16,181,GFTI
+"Birla Institute of Technology, Mesra, Ranchi",Jharkhand,14,182,GFTI
+"Gurukula Kangri Vishwavidyalaya, Haridwar",Uttarakhand,13,183,GFTI
+"Indian Institute of Carpet Technology, Bhadohi",Uttar Pradesh,9,184,GFTI
+"Institute of Infrastructure, Technology, Research and Management-Ahmedabad",Gujarat,11,185,GFTI
+"School of Studies of Engineering and Technology, Guru Ghasidas Vishwavidyalaya, Bilaspur",Chhattisgarh,17,186,GFTI
+"J.K. Institute of Applied Physics & Technology, Department of Electronics & Communication, University of Allahabad- Allahabad",Uttar Pradesh,9,187,GFTI
+"National Institute of Electronics and Information Technology, Aurangabad (Maharashtra)",Maharashtra,2,188,GFTI
+"National Institute of Advanced Manufacturing Technology, Ranchi",Jharkhand,14,189,GFTI
+Sant Longowal Institute of Engineering and Technology,Punjab,15,190,GFTI
+"Mizoram University, Aizawl",Mizoram,31,191,GFTI
+"School of Engineering, Tezpur University, Napaam, Tezpur",Assam,16,192,GFTI
+"School of Planning & Architecture, Bhopal",Madhya Pradesh,5,193,GFTI
+"School of Planning & Architecture, New Delhi",Delhi,4,194,GFTI
+School of Planning & Architecture: Vijayawada,Andhra Pradesh,20,195,GFTI
+"Shri Mata Vaishno Devi University, Katra, Jammu & Kashmir",Jammu and Kashmir,21,196,GFTI
+"International Institute of Information Technology, Naya Raipur",Chhattisgarh,17,197,GFTI
+University of Hyderabad,Telangana,7,198,GFTI
+"Punjab Engineering College, Chandigarh",Chandigarh,33,199,GFTI
+"Jawaharlal Nehru University, Delhi",Delhi,4,200,GFTI
+"International Institute of Information Technology, Bhubaneswar",Odisha,1,201,GFTI
+"Central institute of Technology Kokrajar, Assam",Assam,16,202,GFTI
+"Puducherry Technological University, Puducherry",Puducherry,26,203,GFTI
+"Ghani Khan Choudhury Institute of Engineering and Technology, Malda, West Bengal",West Bengal,6,204,GFTI
+"Central University of Rajasthan, Rajasthan",Rajasthan,8,205,GFTI
+"National Institute of Food Technology Entrepreneurship and Management, Kundli",Haryana,29,206,GFTI
+"National Institute of Food Technology Entrepreneurship and Management, Thanjavur",Tamil Nadu,10,207,GFTI
+"North Eastern Regional Institute of Science and Technology, Nirjuli-791109 (Itanagar),Arunachal Pradesh",Arunachal Pradesh,28,208,GFTI
+"Indian Institute of Handloom Technology(IIHT), Varanasi",Uttar Pradesh,9,209,GFTI
+"Chhattisgarh Swami Vivekanada Technical University, Bhilai (CSVTU Bhilai)",Chhattisgarh,17,210,GFTI
+"Institute of Chemical Technology, Mumbai: Indian Oil Odisha Campus, Bhubaneswar",Odisha,1,211,GFTI
+"North-Eastern Hill University, Shillong",Meghalaya,24,212,GFTI
+Central University of Jammu,Jammu and Kashmir,21,213,GFTI
+"Institute of Engineering and Technology, Dr. H. S. Gour University. Sagar (A Central University)",Madhya Pradesh,5,214,GFTI
+Central University of Haryana,Haryana,29,215,GFTI
+"Birla Institute of Technology, Deoghar Off-Campus",Jharkhand,14,216,GFTI
+"Birla Institute of Technology, Patna Off-Campus",Bihar,12,217,GFTI
+"Indian Institute of Handloom Technology, Salem",Tamil Nadu,10,218,GFTI
+"Gati Shakti Vishwavidyalaya, Vadodara",Gujarat,11,219,GFTI
+CU Jharkhand,Jharkhand,14,220,GFTI
