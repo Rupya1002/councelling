@@ -1,4 +1,5 @@
 import './mainpage.css';
+import Navbar from './@navbar/page';
 
 export const metadata = {
   title: 'JEE Counselling',
@@ -8,7 +9,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        <main className="content">
+          {children}
+        </main>
+      </body>
     </html>
   )
 }

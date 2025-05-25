@@ -14,9 +14,7 @@ export default function Page() {
         'EP': 'EWS (PwD)', 
         'SCP': 'SC (PwD)',
         'STP': 'ST (PwD)'
-    };
-
-    // Default form state
+    };    // Default form state
     const defaultFormState = {
         jeeAdvancedQualified: '',
         jeeMainsRank: '',
@@ -26,11 +24,15 @@ export default function Page() {
         gender: '',
         category: '',
         isPwd: false,
-    };    const [formData, setFormData] = useState(defaultFormState);
+        State: '0'
+    };const [formData, setFormData] = useState(defaultFormState);
     const [isLoading, setIsLoading] = useState(false);
     const [viewportWidth, setViewportWidth] = useState(null);
-    const [isSaved, setIsSaved] = useState(false); 
-    const  router = useRouter();   // Load saved form data from localStorage when component mounts
+    const [isSaved, setIsSaved] = useState(false);
+    const [statesList, setStatesList] = useState([]);
+    const router = useRouter();   // Load saved form data from localStorage when component mounts
+    
+    // Load saved form data from localStorage when component mounts
     useEffect(() => {
         if (typeof window !== 'undefined') {
             try {
@@ -43,6 +45,35 @@ export default function Page() {
                 console.error('Error loading saved form data:', error);
             }
         }
+    }, []);
+    
+    // Load states data from CSV file
+    useEffect(() => {
+        async function fetchStates() {
+            try {
+                const response = await fetch('/state_ids_and_states.csv');
+                const csvText = await response.text();
+                
+                // Parse CSV data
+                const lines = csvText.split('\n');
+                const states = [];
+                
+                // Start from index 1 to skip header row
+                for(let i = 1; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if(line) {
+                        const [id, name] = line.split(',');
+                        states.push({ id, name });
+                    }
+                }
+                
+                setStatesList(states);
+            } catch (error) {
+                console.error('Error loading states data:', error);
+            }
+        }
+        
+        fetchStates();
     }, []);
 
     // Track viewport width for responsive adjustments
@@ -89,7 +120,7 @@ export default function Page() {
     
     // Function to clear all saved data
     const isNonGeneralCategory = () => {
-        return formData.category && formData.category !== 'general';
+        return formData.category && (formData.category !== 'general' || formData.isPwd);
     };
 
     // This function is kept for internal form submission but not shown to users
@@ -132,14 +163,31 @@ export default function Page() {
             categoryCode,
         })
         e.preventDefault(); 
-        if(categoryCode === 'O') {
+        if(categoryCode === 'O' && ! formData.isPwd) {
     const updatedFormData = {
         ...formData,
         jeeAdvancedCategoryRank: 0,
         jeeMainsCategoryRank: 0
     };
     setFormData(updatedFormData);
-    
+
+    // Also save to localStorage
+    if (typeof window !== 'undefined') {
+        try {
+            localStorage.setItem('jeeFormData', JSON.stringify(updatedFormData));
+        } catch (error) {
+            console.error('Error saving form data:', error);
+        }
+    }
+}
+if(formData.jeeAdvancedQualified=== 'no') {
+    const updatedFormData = {
+        ...formData,
+        jeeAdvancedCategoryRank: 0,
+        jeeAdvancedRank: 0
+    };
+    setFormData(updatedFormData);
+
     // Also save to localStorage
     if (typeof window !== 'undefined') {
         try {
@@ -153,7 +201,8 @@ export default function Page() {
         resver: categoryCode,
         gend: formData.gender === 'male' ? 'M' : 'F',
         adv: formData.jeeAdvancedQualified === 'yes' ? (categoryCode !== 'O' ? formData.jeeAdvancedCategoryRank : formData.jeeAdvancedRank) : '0',
-        main: categoryCode !== 'O' ? formData.jeeMainsCategoryRank : formData.jeeMainsRank
+        main: categoryCode !== 'O' ? formData.jeeMainsCategoryRank : formData.jeeMainsRank,
+        stid: formData.State
   });
 
   try {
@@ -202,8 +251,7 @@ export default function Page() {
             <div id="personal-info" className="selection-section">
                 <h3><span className="section-icon">👤</span> Personal Information</h3>
                 
-                <div className="form-group">
-                <label htmlFor="jeeAdvancedQualified">JEE Advanced Qualification Status:</label>
+                <div className="form-group">                <label htmlFor="jeeAdvancedQualified">JEE Advanced Qualification Status: <span className="required">*</span></label>
                 <select 
                     id="jeeAdvancedQualified" 
                     name="jeeAdvancedQualified" 
@@ -217,8 +265,7 @@ export default function Page() {
                 </select>
                 </div>
 
-                <div className="form-group">
-                <label htmlFor="gender">Gender:</label>
+                <div className="form-group">                <label htmlFor="gender">Gender: <span className="required">*</span></label>
                 <select 
                     id="gender" 
                     name="gender" 
@@ -244,11 +291,10 @@ export default function Page() {
                     />
                   
                 </label>
-                <p class="person" >  Person with Disability (PwD)</p>
+                <p className="person" >  Person with Disability (PwD)</p>
                 </div>
 
-                <div className="form-group">
-                <label htmlFor="category">Category:</label>
+                <div className="form-group">                <label htmlFor="category">Category: <span className="required">*</span></label>
                 <select 
                     id="category" 
                     name="category" 
@@ -263,6 +309,21 @@ export default function Page() {
                     <option value="st">{formData.isPwd ? "ST (PwD)" : "ST"}</option>
                     <option value="ews">{formData.isPwd ? "EWS (PwD)" : "EWS"}</option>
                 </select>
+                </div>                
+                <div className="form-group">                <label htmlFor="State">State: </label>
+                <select 
+                    id="State" 
+                    name="State" 
+                    value={formData.State}
+                    onChange={handleChange}
+                >
+                    <option value='0'>Select State</option>
+                    {statesList.map(state => (
+                        <option key={state.id} value={state.id}>
+                            {state.name}
+                        </option>
+                    ))}
+                </select>
                 </div>
             </div>
 
@@ -273,8 +334,7 @@ export default function Page() {
                 {/* JEE Mains Rank Fields */}
                 <div className="rank-section">
                 <h4><span className="section-icon">📊</span> JEE Mains Ranks</h4>
-                <div className="form-group">
-                    <label htmlFor="jeeMainsRank">JEE Mains Rank (CRL):</label>
+                <div className="form-group">                    <label htmlFor="jeeMainsRank">JEE Mains Rank (CRL): <span className="required">*</span></label>
                     <input 
                     type="number" 
                     id="jeeMainsRank" 
@@ -289,8 +349,7 @@ export default function Page() {
                 </div>
 
                 {isNonGeneralCategory() && (
-                    <div className="form-group">
-                    <label htmlFor="jeeMainsCategoryRank">JEE Mains Category Rank:</label>
+                    <div className="form-group">                    <label htmlFor="jeeMainsCategoryRank">JEE Mains Category Rank: <span className="required">*</span></label>
                     <input 
                         type="number" 
                         id="jeeMainsCategoryRank" 
@@ -310,8 +369,7 @@ export default function Page() {
                 {formData.jeeAdvancedQualified === 'yes' && (
                 <div className="rank-section">
                     <h4><span className="section-icon">🌟</span> JEE Advanced Ranks</h4>
-                    <div className="form-group">
-                    <label htmlFor="jeeAdvancedRank">JEE Advanced Rank (CRL):</label>
+                    <div className="form-group">                    <label htmlFor="jeeAdvancedRank">JEE Advanced Rank (CRL): <span className="required">*</span></label>
                     <input 
                         type="number" 
                         id="jeeAdvancedRank" 
@@ -326,8 +384,7 @@ export default function Page() {
                     </div>
 
                     {isNonGeneralCategory() && (
-                    <div className="form-group">
-                        <label htmlFor="jeeAdvancedCategoryRank">JEE Advanced Category Rank:</label>
+                    <div className="form-group">                        <label htmlFor="jeeAdvancedCategoryRank">JEE Advanced Category Rank: <span className="required">*</span></label>
                         <input 
                         type="number" 
                         id="jeeAdvancedCategoryRank" 

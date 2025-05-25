@@ -36,25 +36,30 @@ body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 14px; /* Reduced from 16px */
+  line-height: 1.4; /* Reduced from 1.5 */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+}
+
+.content {
+  padding-top: 60px; /* Reduced space for smaller navbar */
+  min-height: calc(100vh - 50px);
 }
 
 .container {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0.75rem; /* Reduced padding */
 }
 
 .tagline {
   text-align: center;
   color: var(--dark-text);
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
+  font-size: 0.85rem; /* Reduced from 1rem */
+  margin-bottom: 1rem; /* Reduced margin */
   opacity: 0.8;
 }
 
@@ -62,7 +67,7 @@ body {
   text-align: center;
   margin-bottom: 0.5rem;
   color: var(--primary-color);
-  font-size: 1.8rem;
+  font-size: 1.5rem; /* Reduced from 1.8rem */
   font-weight: 700;
   text-shadow: 1px 1px 2px var(--shadow-color);
   position: relative;
@@ -107,7 +112,7 @@ body {
 .form-header h2 {
   margin: 0;
   color: var(--primary-color);
-  font-size: 1.3rem;
+  font-size: 1.1rem; /* Reduced from 1.3rem */
   font-weight: 600;
 }
 
@@ -130,7 +135,7 @@ body {
   margin-top: 0;
   margin-bottom: 1rem;
   color: var(--primary-color);
-  font-size: 1.1rem;
+  font-size: 0.95rem; /* Reduced from 1.1rem */
   position: relative;
   padding-left: 0.75rem;
   font-weight: 600;
@@ -162,7 +167,7 @@ body {
   margin-top: 0;
   margin-bottom: 1rem;
   color: var(--primary-color);
-  font-size: 1.1rem;
+  font-size: 0.95rem; /* Reduced from 1.1rem */
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 0.5rem;
   position: relative;
@@ -191,16 +196,16 @@ body {
   margin-bottom: 0.4rem;
   font-weight: 500;
   color: var(--dark-text);
-  font-size: 0.95rem;
+  font-size: 0.85rem; /* Reduced from 0.95rem */
 }
 
 .form-group input,
 .form-group select {
   width: 100%;
-  padding: 12px;
+  padding: 10px; /* Reduced from 12px */
   border: 1px solid var(--border-color);
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 0.9rem; /* Reduced from 1rem */
   transition: all 0.3s;
   background-color: #fff;
   -webkit-appearance: none; /* Remove default iOS styling */
@@ -234,13 +239,14 @@ display: inline-block;
   align-items: top;
   cursor: pointer;
   font-weight: 500;
-  padding: 10px;
-  padding-top: 17px;
-  padding-left: 17px;
-  margin-right: 5px;
+  padding: 8px; /* Reduced from 10px */
+  padding-top: 12px; /* Reduced from 17px */
+  padding-left: 12px; /* Reduced from 17px */
+  margin-right: 4px; /* Reduced from 5px */
   border-radius: 4px;
   transition: background-color 0.3s;
   min-height: 44px; /* Minimum tap target size */
+  font-size: 0.85rem; /* Added smaller font size */
 }
 
 .checkbox-label:hover {
@@ -298,7 +304,7 @@ display: inline-block;
   margin-top: 0;
   margin-bottom: 0.8rem;
   color: var(--secondary-color);
-  font-size: 1rem;
+  font-size: 0.9rem; /* Reduced from 1rem */
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 0.4rem;
   font-weight: 600;
@@ -330,7 +336,7 @@ display: inline-block;
   color: var(--light-text);
   border: none;
   border-radius: 8px;
-  font-size: 1.1rem;
+  font-size: 1rem; /* Reduced from 1.1rem */
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s;
@@ -479,11 +485,78 @@ display: inline-block;
 }
 
 @media (max-width: 480px) {
+  body {
+    font-size: 13px; /* Even smaller base font size for mobile */
+  }
+  
+  .container {
+    padding: 0.5rem; /* Reduced padding for mobile */
+  }
+  
+  .title {
+    font-size: 1.2rem; /* Smaller title for mobile */
+  }
+  
+  .tagline {
+    font-size: 0.75rem; /* Smaller tagline */
+  }
+  
+  .form {
+    padding: 1rem; /* Reduced form padding */
+  }
+  
+  .form-header h2 {
+    font-size: 0.95rem; /* Smaller header */
+  }
+  
+  .selection-section h3,
+  .ranks-container h3 {
+    font-size: 0.85rem; /* Smaller section headers */
+  }
+  
+  .rank-section h4 {
+    font-size: 0.8rem; /* Smaller rank headers */
+  }
+  
+  .form-group label {
+    font-size: 0.75rem; /* Smaller labels */
+    margin-bottom: 0.2rem;
+  }
+  
+  .form-group input,
+  .form-group select {
+    font-size: 0.8rem; /* Smaller input text */
+    padding: 8px; /* Reduced input padding */
+  }
+  
+  .checkbox-label {
+    font-size: 0.75rem; /* Smaller checkbox labels */
+    padding: 6px;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin-right: 2px;
+  }
+  
+  .nav-btn {
+    font-size: 0.8rem; /* Smaller navigation buttons */
+    padding: 8px;
+  }
+  
+  .submit-btn {
+    font-size: 0.9rem; /* Smaller submit button text */
+    padding: 12px;
+  }
+  
+  .clear-btn {
+    font-size: 0.9rem;
+    padding: 12px 8px;
+  }
+  
   .form-footer {
     position: sticky;
     bottom: 0;
     background: rgba(236, 240, 241, 0.95);
-    margin: 1rem -1.25rem -1.25rem;
+    margin: 1rem -1rem -1rem;
     padding: 1rem;
     border-top: 1px solid var(--border-color);
     backdrop-filter: blur(4px);
@@ -492,7 +565,11 @@ display: inline-block;
   }
 
   .form-note {
-    font-size: 0.85rem;
+    font-size: 0.75rem; /* Smaller form notes */
+  }
+  
+  .saved-indicator {
+    font-size: 0.75rem; /* Smaller saved indicator */
   }
 }
 
