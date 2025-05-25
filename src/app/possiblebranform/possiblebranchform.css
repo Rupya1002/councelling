@@ -59,3 +59,34 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.no-seats-popup-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.no-seats-popup {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  text-align: center;
+  max-width: 90vw;
+}
+.close-popup-btn {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  background: #0070f3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.close-popup-btn:hover {
+  background: #005bb5;
+}

@@ -19,12 +19,22 @@ export default function PossibleBranchForm() {
   const [instituteState, setInstituteState] = useState('');
   const [isSaved, setIsSaved] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showNoSeatsPopup, setShowNoSeatsPopup] = useState(false);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
   const router = useRouter();
-  const handlesubmit1 = (e) => {
-   
-    setIsLoading(false);
-    router.push('/display');
-  } 
+   // Fetch Ids.json and store its contents in a state variable (no localStorage)
+    const [idsData, setIdsData] = useState(null);
+
+    useEffect(() => {
+        fetch('Ids.json')
+            .then(response => response.json())
+            .then(data => {
+                setIdsData(data);
+            })
+            .catch(error => {
+                console.error('Error fetching Ids.json:', error);
+            });
+    }, []);
   // Load and process CSV for institutes
   useEffect(() => {
     async function fetchAndProcessCSV() {
@@ -65,6 +75,7 @@ export default function PossibleBranchForm() {
         const saved = localStorage.getItem('possibleBranchForm');
         if (saved) setFormData(JSON.parse(saved));
       } catch {}
+      setIsInitialLoad(false);
     }
   }, []);
 
@@ -90,14 +101,16 @@ export default function PossibleBranchForm() {
 
   // Update institutes list and reset selection when type changes
   useEffect(() => {
-    setFormData(prev => ({ ...prev, instituteId: '', isFromInstituteState: false }));
+    if (!isInitialLoad) {
+      setFormData(prev => ({ ...prev, instituteId: '', isFromInstituteState: false }));
+    }
     if (formData.instituteType && allInstitutes[formData.instituteType]) {
       setInstitutesList(allInstitutes[formData.instituteType]);
     } else {
       setInstitutesList([]);
     }
     setInstituteState('');
-  }, [formData.instituteType, allInstitutes]);
+  }, [formData.instituteType, allInstitutes, isInitialLoad]);
 
   // Update state of selected institute
   useEffect(() => {
@@ -117,11 +130,21 @@ export default function PossibleBranchForm() {
     { value: 'ST', label: formData.isPwd ? 'ST (PwD)' : 'ST' },
     { value: 'E', label: formData.isPwd ? 'EWS (PwD)' : 'EWS' },
   ];
-
+const checkPossibleBranches = (url) => {
+  if (!url) {
+    console.error('Invalid URL for branch check');
+    return false;
+  }
+  if (url in idsData) {
+    return true;
+  }
+  return false;
+}
   // ...existing code...
 const handleSubmit = (e) => {
   e.preventDefault();
   console.log('Form Data:', formData);
+  setIsLoading(true);
 
   // Validate required fields
   if (!formData.instituteId || !formData.gender || !formData.category) {
@@ -138,19 +161,49 @@ const handleSubmit = (e) => {
     formData.isPwd ? 'P' : ''
   ].filter(Boolean).join('');
 
-  fetch(`https://api-josaacounselling22.vercel.app/api/check?id=${url}`)
-    .then(response => response.json())
-    .then(data => {
-      if (data){
-        console.log('Possible branches:', data);
-        localStorage.setItem('possibleBranches', JSON.stringify(data));
-        
-      }
-    });
+  if (checkPossibleBranches(url)){
+  try {
+    fetch(`https://api-josaacounselling22.vercel.app/api/check?id=${url}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data) {
+          console.log('Possible branches:', data);
+          localStorage.setItem('possibleBranches', JSON.stringify(data));
+        }
+      })
+      .then(() => {
+        setIsLoading(false);
+        router.push('/display');
+      })
+      .catch(error => {
+        setIsLoading(false);
+        console.error('Error fetching possible branches:', error);
+      });
+  } catch (error) {
+    setIsLoading(false);
+    console.error('Unexpected error:', error);
+  }
+}
+  else {
+    setIsLoading(false);
+    // Show a custom styled popup instead of alert
+    setShowNoSeatsPopup(true);
+  }
   };
 
   return (
     <div className="container">
+      {showNoSeatsPopup && (
+        <div className="no-seats-popup-overlay">
+          <div className="no-seats-popup">
+            <h2>No Seats Allocated</h2>
+            <p>Sorry, no possible branches were found for your selection.</p>
+            <button className="close-popup-btn" onClick={() => setShowNoSeatsPopup(false)}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
       <h1 className="title">Possible Branch Predictor</h1>
       <div className="tagline">Find your possible branches by filling the form below</div>
       <form className="form" onSubmit={handleSubmit}>
@@ -300,7 +353,7 @@ const handleSubmit = (e) => {
           </div>
           <p className="form-note">Your possible branches are just a step away!</p>
           <div className="button-group">
-            <button type="submit" onClick={handlesubmit1} className="submit-btn" disabled={isLoading}>
+            <button type="submit" className="submit-btn" disabled={isLoading}>
               Find Possible Branches
             </button>
           </div>

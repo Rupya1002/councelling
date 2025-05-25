@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 export default function Page() {
-    // This reservation object is kept for internal use but won't be displayed to users
     const reservations = {
         'O': 'OPEN',
         'E': 'EWS', 
