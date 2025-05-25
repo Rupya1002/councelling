@@ -103,7 +103,7 @@ export default function InstitutesPage() {
 
     return (
         <div className="institutes-container">
-            <button onClick={goBack} className="back-button">
+            <button onClick={goBack} className="back-button-institutes">
                 ← Back to Form
             </button>
 

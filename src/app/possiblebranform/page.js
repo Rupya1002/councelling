@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import './possiblebranchform.css';
-
+import { useRouter } from 'next/navigation';
 const defaultFormState = {
   instituteType: '',
   instituteId: '',
@@ -19,7 +19,12 @@ export default function PossibleBranchForm() {
   const [instituteState, setInstituteState] = useState('');
   const [isSaved, setIsSaved] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
+  const router = useRouter();
+  const handlesubmit1 = (e) => {
+   
+    setIsLoading(false);
+    router.push('/display');
+  } 
   // Load and process CSV for institutes
   useEffect(() => {
     async function fetchAndProcessCSV() {
@@ -295,7 +300,7 @@ const handleSubmit = (e) => {
           </div>
           <p className="form-note">Your possible branches are just a step away!</p>
           <div className="button-group">
-            <button type="submit" className="submit-btn" disabled={isLoading}>
+            <button type="submit" onClick={handlesubmit1} className="submit-btn" disabled={isLoading}>
               Find Possible Branches
             </button>
           </div>

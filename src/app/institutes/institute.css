@@ -28,21 +28,29 @@
     opacity: 0.5;
 }
 
-.back-button {
-    background: transparent;
+@media (max-width: 500px) {
+    .search-params p:not(:last-child)::after {
+        content: none;
+    }
+}
+.back-button-institutes {
+    display: block;
+    margin: 0.5rem auto 0;
+    margin-bottom: 10px;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+     color: rgb(4, 4, 71);
     border: none;
-    color: var(--primary-color);
-    padding: 0.5rem 1rem;
-    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
-.back-button:hover {
-    color: var(--accent-color);
+.back-button-institutes:hover {
+    background-color: rgb(4, 4, 71);
+    color: white;
 }
 
 .search-params {
