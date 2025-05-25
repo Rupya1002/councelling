@@ -13,7 +13,8 @@ export default function RoundsPage() {
             try {
                 const selectedInstitute = localStorage.getItem('selectedInstitute');
                 const formDataStr = localStorage.getItem('jeeFormData');
-
+                // console.log('Selected Institute:', selectedInstitute);
+                console.log('Form Data:', formDataStr);
                 if (!selectedInstitute) {
                     setError('No institute selected');
                     return;
@@ -75,7 +76,7 @@ export default function RoundsPage() {
                 <h1 className="institute-name">{instituteData?.Institute}</h1>
                 <h2 className="branch-name">{instituteData?.AcademicProgramName}</h2>
                 {formData?.category && (
-                    <h3 className="category-name">Category: {formData.category}</h3>
+                    <h3 className="category-name">Category: {(formData.category).toUpperCase()}</h3>
                 )}
             </div>
 

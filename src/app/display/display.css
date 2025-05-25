@@ -195,6 +195,49 @@
   transform: translateX(5px);
 }
 
+.probability-bar-container {
+  margin: 1rem 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.probability-bar-bg {
+  flex: 1;
+  height: 16px;
+  background: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.probability-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+  border-radius: 8px 0 0 8px;
+  transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+.probability-bar-fill.highly-probable {
+  background: #4caf50; /* Green for highly probable */
+}
+
+.probability-bar-fill.probable {
+  background: #ffeb3b; /* Yellow for probable */
+}
+
+.probability-bar-fill.less-probable {
+  background: #f44336; /* Red for less probable */
+}
+
+.probability-label {
+  min-width: 80px;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
 @media (max-width: 768px) {
   .institutes-container {
     padding: 1rem;

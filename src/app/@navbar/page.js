@@ -38,29 +38,12 @@ export default function Navbar() {
     };
   }, [lastScrollY]);
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${visible ? '' : 'hidden'}`}>
+    <nav className={`navbar${scrolled ? ' scrolled' : ''}${!visible ? ' hidden' : ''}`}>
       <div className="navbar-container">
-        <Link href="/" className="logo">
-          JEE Counselling
-        </Link>
-
-        {/* Navigation links - always visible */}
+        <Link href="/" className="logo">JEE</Link>
         <ul className="nav-menu">
-          {/* <li className="nav-item">
-            <Link href="/" className="nav-link">
-              Home
-            </Link>
-          </li> */}
-          <li className="nav-item">
-            <Link href="/contactus" className="nav-link">
-              Contact Us
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link href="/possiblebranform" className="nav-link">
-              Possible Branch Form
-            </Link>
-          </li>
+          <li><Link href="/possiblebranform" className="nav-link">IIT Branch Finder</Link></li>
+          <li><Link href="/contactus" className="nav-link">Contact Us</Link></li>
         </ul>
       </div>
     </nav>

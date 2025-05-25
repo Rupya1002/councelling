@@ -135,7 +135,10 @@ const checkPossibleBranches = (url) => {
     console.error('Invalid URL for branch check');
     return false;
   }
-  if (url in idsData) {
+  if (Array.isArray(idsData)) {
+    return idsData.includes(url);
+  }
+  if (idsData && typeof idsData === 'object' && Object.prototype.hasOwnProperty.call(idsData, url)) {
     return true;
   }
   return false;
@@ -173,7 +176,7 @@ const handleSubmit = (e) => {
       })
       .then(() => {
         setIsLoading(false);
-        router.push('/display');
+        router.push('/display?rank=' + formData.rank);
       })
       .catch(error => {
         setIsLoading(false);
