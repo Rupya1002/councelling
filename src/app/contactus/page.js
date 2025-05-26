@@ -27,7 +27,7 @@ export default function ContactUs() {
                             <div className="developer-avatar">👨‍💻</div>
                             <h3>G Nageswara Venkata Durga Sai</h3>
                             <p className="developer-role">Lead Developer</p>                            <div className="contact-links">
-                                <a href="mailto:developer1@example.com" className="contact-link">
+                                <a href="mailto:dsainvg.20.12@gmail.com" className="contact-link">
                                     <span className="icon">✉️</span> Email
                                 </a>
                             </div>
@@ -37,7 +37,7 @@ export default function ContactUs() {
                             <div className="developer-avatar">👩‍💻</div>
                             <h3>K Rupya Lakshmi Sai Sri</h3>
                             <p className="developer-role">UI/UX Developer</p>                            <div className="contact-links">
-                                <a href="mailto:developer2@example.com" className="contact-link">
+                                <a href="mailto:rupya13017@gmail.com" className="contact-link">
                                     <span className="icon">✉️</span> Email
                                 </a>
                             </div>
