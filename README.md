@@ -167,7 +167,7 @@ The rank of the last candidate admitted in the final round (lowest rank that got
 
 ## ⚡ Quick Start Guide
 
-1. **Visit the Website**: Navigate to the JEE Counseling platform
+1. **Visit the Website**: Visit the [Josaa councelling](https://councelling.vercel.app/) for counseling details.
 2. **Choose Your Tool**: 
    - "JEE Counseling Form" for college recommendations
    - "Branch Predictor" for specific institute analysis
@@ -175,7 +175,6 @@ The rank of the last candidate admitted in the final round (lowest rank that got
 4. **Analyze Results**: Study the recommendations carefully
 5. **Plan Your Strategy**: Create your counseling preference list
 6. **Take Action**: Apply during actual counseling rounds
-
 ---
 
 ## 🔄 Regular Updates
