@@ -87,7 +87,6 @@ The **Branch Finder** is a powerful tool to explore where a specific branch is a
    - 👤 Category
    - 🔁 JoSAA Round
    - 🏛️ Institute Type(s)
-   - 🧪 (Optional) Branch Filter
 3. Instantly see eligible colleges and branches with previous year’s closing ranks.
 
 ---
