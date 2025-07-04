@@ -1,118 +1,228 @@
-# 🎓 JoSAA Counselling Predictor – Complete User Guide
+# JEE Counseling Website - Complete User Guide
 
-Welcome to the **JoSAA Counselling Predictor**, a smart and easy-to-use web tool designed to help students explore possible **college and branch options** during JoSAA counselling based on their rank, category, preferences, and round-wise data.
+## 🎯 About This Website
 
-🔗 **Live App:** [https://councelling.vercel.app](https://councelling.vercel.app)
+This comprehensive JEE counseling platform is designed to help JEE Main and JEE Advanced aspirants make informed decisions about their college and branch selection. Our website provides two powerful tools to guide you through the complex process of engineering admission counseling.
 
----
+## 👥 Who This Website Is For
 
-## 📌 What is This App?
-
-This app helps JEE Main/Advanced aspirants:
-- Predict eligible colleges and branches based on rank and category
-- Explore where specific branches are available (via **Branch Finder**)
-- Understand previous year’s JoSAA closing ranks
-- Plan and prioritize their choice filling more effectively
-
----
-
-## 🧠 Who Can Use This?
-
-- Students participating in **JoSAA counselling**
-- Parents and mentors assisting with college selection
-- Anyone analyzing past cutoffs for IITs, NITs, IIITs, and GFTIs
-
----
+- **JEE Main Qualified Students** - Looking to get admission in NITs, IIITs, GFTIs, and other participating institutes
+- **JEE Advanced Qualified Students** - Seeking admission in prestigious IITs
+- **Parents and Guardians** - Helping their children make informed college choices
+- **Counselors and Mentors** - Assisting students with data-driven admission guidance
+- **Engineering Aspirants** - Planning their career path in engineering
 
 ## 🚀 Key Features
 
-### 🎯 Rank-Based College Prediction
-Enter your JEE rank and get a list of colleges and branches you're eligible for, based on previous year's JoSAA cutoffs.
+### 1. **JEE Counseling Form** - Your Path to Dream College
+Find the best colleges based on your ranks and preferences.
 
-### 🏛️ Institute Type Filter
-Choose one or more institute types:
-- IIT
-- NIT
-- IIIT
-- GFTI
-
-### 🧾 Category & Gender Filter
-Filter cutoffs by:
-- Categories: GEN, OBC-NCL, SC, ST, EWS, etc.
-- Seat type: Gender-neutral / Female-only
-
-### 🔄 Round-Wise Cutoffs
-View data for any of the JoSAA rounds (Round 1 to Round 6).
-
-### 🔍 Branch Filter
-Search or limit your prediction results to a specific branch like CSE, ECE, ME, etc.
+### 2. **Branch Predictor** - Discover Your Possible Branches
+Explore available branches at specific institutes based on your rank.
 
 ---
 
-## 🧭 Branch Finder (Reverse Branch-Based Predictor)
+## 📋 How to Use the JEE Counseling Form
 
-The **Branch Finder** is a powerful tool to explore where a specific branch is available **for your rank**, instead of finding branches based on rank.
+### Step 1: Personal Information
+Fill out your basic details:
 
-### How to Use:
-1. Go to the **Branch Finder** section in the top navigation.
-2. Fill in:
-   - 🎓 Branch name (e.g., CSE, ECE)
-   - 📊 Your category (e.g., GEN, OBC, SC)
-   - 🔢 Your rank
-   - 🚻 Gender (Gender-neutral or Female-only)
-   - 🏛️ Institute types (IIT/NIT/IIIT/GFTI)
-   - 🔁 JoSAA Round
-3. Click **Submit**.
-4. View a table showing:
-   - Institute Name  
-   - Branch  
-   - Category  
-   - Seat Type  
-   - Round  
-   - Closing Rank
+- **JEE Advanced Qualification Status**: Select whether you're qualified for JEE Advanced or not
+  - If not qualified: You won't see the Advanced rank input section
+  - If qualified: You can enter both JEE Main and JEE Advanced ranks
 
-### Why Use It?
-- To find **where a branch like CSE is available** at your rank  
-- To plan **branch-first** strategies (e.g., "I want CSE no matter where")  
-- To make fast comparisons across colleges for one specific field
+- **Gender**: Select your gender (Male/Female)
+- **Person with Disability (PwD)**: Check if applicable
+- **Category**: Choose your reservation category (General, OBC, SC, ST, etc.)
+- **State**: Select your home state
 
----
+### Step 2: Enter Your Ranks
+- **CRL (Common Rank List)**: Your overall JEE Main rank
+- **Category Rank**: Your rank within your specific category (if applicable)
+- **JEE Advanced Rank**: Your JEE Advanced rank (if qualified)
 
-## 🧑‍🏫 Main Predictor (Rank-Based)
+### Step 3: Find Your Dream College
+Click "Find My Dream College" to get personalized recommendations.
 
-### How to Use:
-1. Go to the homepage.
-2. Enter your:
-   - 🎯 JEE Rank (CRL or Category Rank)
-   - 👤 Category
-   - 🔁 JoSAA Round
-   - 🏛️ Institute Type(s)
-3. Instantly see eligible colleges and branches with previous year’s closing ranks.
+### What You'll Get:
+- **Comprehensive Institute List**: All eligible IITs, NITs, IIITs, and GFTIs
+- **Segregated Results**: Separate sections for different institute types
+- **Branch Information**: Available branches with opening and closing ranks
+- **Round-wise Data**: Historical data for all counseling round.
 
 ---
 
-## 📊 Example Scenarios
+## 🔍 How to Use the Branch Predictor
 
-- **Case 1**: You are OBC-NCL with 12,000 rank, want CSE in NITs  
-→ Use the **Main Predictor** with category, rank, and CSE filter selected.
+### Step 1: Select Institute Details
+- **Institute Type**: Choose from IIT, NIT, IIIT, or GFTI
+- **Specific Institute**: Select the particular college you're interested in
+- **Person with Disability (PwD)**: Check if applicable
 
-- **Case 2**: You want to know where ECE was available in Round 6 last year  
-→ Use the **Branch Finder** with ECE selected, and review all colleges that offered it.
+### Step 2: Enter Your Details
+- **Category**: Your reservation category
+- **Gender**: Male/Female
+- **Rank**: Your CRL or category rank
+
+### Step 3: Find Possible Branches
+Click "Find Branches" to discover your options.
+
+### What You'll Get:
+- **Available Branches**: All branches you can potentially get
+- **Opening & Closing Ranks**: Rank ranges for each branch
+- **Probability Assessment**: Your chances of securing each branch
+- **Round-wise Analysis**: Historical trends across all counseling rounds
+
+### If No Branches Available:
+You'll receive a clear message: "No possible branches" or "Seats are not allocated" for that particular institute.
 
 ---
 
-## 📂 Data Behind the App
+## 🏛️ Institute Categories Covered
 
-- Based on official JoSAA counselling data from [josaa.nic.in](https://josaa.nic.in) 
-- Includes:
-  - Opening/Closing Ranks
-  - Institute Name
-  - Program Name
-  - Round
-  - Category
-  - Gender-based seat types
+### **IITs (Indian Institutes of Technology)**
+- All 23 IITs including newer ones
+- Premium engineering education
+- Highest placement records
+- Research-oriented programs
 
-All data is loaded in the app and processed in real time for fast performance.
+### **NITs (National Institutes of Technology)**
+- 31 NITs across India
+- Excellent infrastructure and faculty
+- Strong alumni network
+- Balanced academics and placements
+
+### **IIITs (Indian Institutes of Information Technology)**
+- IT and Computer Science focused
+- Modern curriculum
+- Industry partnerships
+- Emerging technology specializations
+
+### **GFTIs (Government Funded Technical Institutes)**
+- Other prestigious government institutes
+- Specialized programs
+- Regional importance
+- Cost-effective education
 
 ---
 
+## 📊 Understanding the Data
+
+### **Opening Rank**: 
+The rank of the last candidate admitted in the first round (highest rank that got admission)
+
+### **Closing Rank**: 
+The rank of the last candidate admitted in the final round (lowest rank that got admission)
+
+### **Probability Indicators**:
+- **Highly Probable**: Very likely to get admission
+- **Less Probable**: Low chances but worth trying
+
+### **Round-wise Details**:
+- **Round 1-6**: Different phases of counseling
+- **Spot Rounds**: Additional rounds if seats remain vacant
+- **Historical Trends**: Pattern analysis across years
+
+---
+
+## 💡 Tips for Using the Website
+
+### **For JEE Main Students**:
+1. Focus on NITs, IIITs, and GFTIs
+2. Consider state quota advantages
+3. Look at newer NITs for better chances
+4. Don't ignore GFTIs - they offer quality education
+
+### **For JEE Advanced Students**:
+1. Explore both IITs and backup options
+2. Consider newer IITs for better branch options
+3. Keep NITs as safe choices
+4. Look at branch preferences vs. institute preferences
+
+### **General Strategies**:
+1. **Dream-Match-Safety**: Create a balanced list
+2. **Branch vs. Institute**: Decide your priority
+3. **Location Preferences**: Consider proximity to home
+4. **Future Goals**: Align with career objectives
+5. **Multiple Rounds**: Participate in all applicable rounds
+
+---
+
+## 🔧 Technical Features
+
+- **Real-time Data**: Updated with latest cutoff trends
+- **Mobile Responsive**: Works on all devices
+- **Fast Loading**: Optimized for quick results
+- **User-friendly Interface**: Easy navigation and form filling
+- **Comprehensive Database**: Covers all participating institutes
+
+---
+
+## 📞 Need Help?
+
+### **Contact Information**
+- Use the "Contact Us" link on the website
+- For technical issues or data queries
+- For counseling guidance and support
+
+## ⚡ Quick Start Guide
+
+1. **Visit the Website**: Navigate to the JEE Counseling platform
+2. **Choose Your Tool**: 
+   - "JEE Counseling Form" for college recommendations
+   - "Branch Predictor" for specific institute analysis
+3. **Fill Accurate Details**: Enter correct ranks and personal information
+4. **Analyze Results**: Study the recommendations carefully
+5. **Plan Your Strategy**: Create your counseling preference list
+6. **Take Action**: Apply during actual counseling rounds
+
+---
+
+## 🔄 Regular Updates
+
+- **Annual Cutoff Updates**: Latest year trends
+- **New Institute Additions**: Recently added participating institutes
+- **Policy Changes**: Updated reservation and counseling rules
+- **Bug Fixes**: Continuous improvement for better user experience
+
+---
+
+## 📈 Why Choose Our Platform?
+
+- **Comprehensive Coverage**: All major engineering institutes
+- **Accurate Predictions**: Based on historical data and trends
+- **User-Centric Design**: Built for student convenience
+- **Free Access**: No hidden charges or premium features
+- **Reliable Data**: Sourced from official counseling results
+
+---
+
+## 🚀 Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/jee-counseling-website.git
+
+# Navigate to project directory
+cd jee-counseling-website
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm start
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+**Start your journey to your dream engineering college today!**
+
+*Remember: This tool provides guidance based on historical data. Final admission depends on various factors including seat availability, counseling participation, and document verification.*
