@@ -103,7 +103,7 @@ The **Branch Finder** is a powerful tool to explore where a specific branch is a
 
 ## 📂 Data Behind the App
 
-- Based on official JoSAA counselling data from [josaa.nic.in](https://josaa.nic.in) or [data.gov.in](https://data.gov.in)
+- Based on official JoSAA counselling data from [josaa.nic.in](https://josaa.nic.in) 
 - Includes:
   - Opening/Closing Ranks
   - Institute Name
