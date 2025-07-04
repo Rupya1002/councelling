@@ -199,30 +199,6 @@ The rank of the last candidate admitted in the final round (lowest rank that got
 
 ## 🚀 Getting Started
 
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/jee-counseling-website.git
-
-# Navigate to project directory
-cd jee-counseling-website
-
-# Install dependencies
-npm install
-
-# Start the development server
-npm start
-```
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 **Start your journey to your dream engineering college today!**
 
 *Remember: This tool provides guidance based on historical data. Final admission depends on various factors including seat availability, counseling participation, and document verification.*
